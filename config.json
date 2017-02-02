@@ -1,0 +1,74 @@
+[
+  {
+    "name": "IntelliJ IDEA",
+    "url": "https://download.jetbrains.com/idea/ideaIU-%s.tar.gz",
+    "parentdir": "/opt",
+    "dir": "IntelliJ-IDEA",
+    "chmod": "0755",
+    "enabled": false
+  },
+  {
+    "name": "RubyMine",
+    "url": "https://download.jetbrains.com/ruby/RubyMine-%s.tar.gz",
+    "parentdir": "/opt",
+    "dir": "RubyMine",
+    "chmod": "0755",
+    "enabled": true
+  },
+  {
+    "name": "PyCharm",
+    "url": "https://download.jetbrains.com/python/pycharm-professional-%s.tar.gz",
+    "parentdir": "/opt",
+    "dir": "PyCharm",
+    "chmod": "0755",
+    "enabled": false
+  },
+  {
+    "name": "PhpStorm",
+    "url": "https://download.jetbrains.com/webide/PhpStorm-EAP-%s.tar.gz",
+    "parentdir": "/opt",
+    "dir": "PhpStorm",
+    "chmod": "0755",
+    "enabled": true
+  },
+  {
+    "name": "WebStorm",
+    "url": "https://download.jetbrains.com/webstorm/WebStorm-EAP-%s.tar.gz",
+    "parentdir": "/opt",
+    "dir": "WebStorm",
+    "chmod": "0755",
+    "enabled": false
+  },
+  {
+    "name": "CLion",
+    "url": "https://download.jetbrains.com/cpp/CLion-%s.tar.gz",
+    "parentdir": "/opt",
+    "dir": "CLion",
+    "chmod": "0755",
+    "enabled": false
+  },
+  {
+    "name": "DataGrip",
+    "url": "https://download.jetbrains.com/datagrip/datagrip-%s.tar.gz",
+    "parentdir": "/opt",
+    "dir": "DataGrip",
+    "chmod": "0755",
+    "enabled": false
+  },
+  {
+    "name": "Rider",
+    "url": "https://download.jetbrains.com/resharper/riderRS-%s.tar.gz",
+    "parentdir": "/opt",
+    "dir": "Rider",
+    "chmod": "0755",
+    "enabled": false
+  },
+  {
+    "name": "Gogland",
+    "url": "https://download.jetbrains.com/go/gogland-%s.tar.gz",
+    "parentdir": "/opt",
+    "dir": "Gogland",
+    "chmod": "0755",
+    "enabled": true
+  }
+]
