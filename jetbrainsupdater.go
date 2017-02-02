@@ -217,7 +217,6 @@ func main() {
 			tmpFile := filepath.Join(tmpDir, "installation.tar.gz")
 
 			url := fmt.Sprintf(products[p].Url, build)
-			//url = "https://dl.dropboxusercontent.com/u/1051148/test.tar.gz?dl=1" // extraction test
 
 			nameAndBuild := products[p].Name + " " + build
 
