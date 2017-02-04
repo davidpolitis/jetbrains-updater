@@ -1,7 +1,8 @@
 [
   {
     "name": "IntelliJ IDEA",
-    "url": "https://download.jetbrains.com/idea/ideaIU-%s.tar.gz",
+    "ID": "IIU",
+    "EAP": true,
     "parentdir": "/opt",
     "dir": "IntelliJ-IDEA",
     "chmod": "0755",
@@ -9,15 +10,17 @@
   },
   {
     "name": "RubyMine",
-    "url": "https://download.jetbrains.com/ruby/RubyMine-%s.tar.gz",
-    "parentdir": "/opt",
+    "ID": "RM",
+    "EAP": true,
+    "parentdir": "/tmp",
     "dir": "RubyMine",
     "chmod": "0755",
     "enabled": true
   },
   {
     "name": "PyCharm",
-    "url": "https://download.jetbrains.com/python/pycharm-professional-%s.tar.gz",
+    "ID": "PCP",
+    "EAP": true,
     "parentdir": "/opt",
     "dir": "PyCharm",
     "chmod": "0755",
@@ -25,15 +28,17 @@
   },
   {
     "name": "PhpStorm",
-    "url": "https://download.jetbrains.com/webide/PhpStorm-EAP-%s.tar.gz",
-    "parentdir": "/opt",
+    "ID": "PS",
+    "EAP": true,
+    "parentdir": "/tmp",
     "dir": "PhpStorm",
     "chmod": "0755",
-    "enabled": true
+    "enabled": false
   },
   {
     "name": "WebStorm",
-    "url": "https://download.jetbrains.com/webstorm/WebStorm-EAP-%s.tar.gz",
+    "ID": "WS",
+    "EAP": true,
     "parentdir": "/opt",
     "dir": "WebStorm",
     "chmod": "0755",
@@ -41,7 +46,8 @@
   },
   {
     "name": "CLion",
-    "url": "https://download.jetbrains.com/cpp/CLion-%s.tar.gz",
+    "ID": "CL",
+    "EAP": true,
     "parentdir": "/opt",
     "dir": "CLion",
     "chmod": "0755",
@@ -49,7 +55,8 @@
   },
   {
     "name": "DataGrip",
-    "url": "https://download.jetbrains.com/datagrip/datagrip-%s.tar.gz",
+    "ID": "DG",
+    "EAP": true,
     "parentdir": "/opt",
     "dir": "DataGrip",
     "chmod": "0755",
@@ -57,7 +64,8 @@
   },
   {
     "name": "Rider",
-    "url": "https://download.jetbrains.com/resharper/riderRS-%s.tar.gz",
+    "ID": "",
+    "EAP": true,
     "parentdir": "/opt",
     "dir": "Rider",
     "chmod": "0755",
@@ -65,10 +73,11 @@
   },
   {
     "name": "Gogland",
-    "url": "https://download.jetbrains.com/go/gogland-%s.tar.gz",
-    "parentdir": "/opt",
+    "ID": "",
+    "EAP": true,
+    "parentdir": "/tmp",
     "dir": "Gogland",
     "chmod": "0755",
-    "enabled": true
+    "enabled": false
   }
 ]
