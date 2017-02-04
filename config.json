@@ -12,7 +12,7 @@
     "name": "RubyMine",
     "ID": "RM",
     "EAP": true,
-    "parentdir": "/tmp",
+    "parentdir": "/opt",
     "dir": "RubyMine",
     "chmod": "0755",
     "enabled": true
@@ -30,10 +30,10 @@
     "name": "PhpStorm",
     "ID": "PS",
     "EAP": true,
-    "parentdir": "/tmp",
+    "parentdir": "/opt",
     "dir": "PhpStorm",
     "chmod": "0755",
-    "enabled": false
+    "enabled": true
   },
   {
     "name": "WebStorm",
@@ -75,9 +75,9 @@
     "name": "Gogland",
     "ID": "",
     "EAP": true,
-    "parentdir": "/tmp",
+    "parentdir": "/opt",
     "dir": "Gogland",
     "chmod": "0755",
-    "enabled": false
+    "enabled": true
   }
 ]

@@ -197,6 +197,24 @@ func main() {
 				log.Fatal("Error getting JSON for " + products[p].Name + ".", err3)
 			}
 
+			chars := bufio.NewReader(res.Body)
+			// discard bracket, quote and product ID
+			chars.Discard(2 + len(products[p].ID))
+			// create byte slice of needed length
+			bytesLeft := chars.Buffered()
+			sliceLen := 3 + bytesLeft
+			jsonSlice := make([]byte, sliceLen, sliceLen)
+			// prepend curly bracket, quote and static product ID to byte slice
+			jsonSlice[0] = '{'
+			jsonSlice[1] = '"'
+			jsonSlice[2] = 'A'
+
+			// append remaining characters to byte slice
+			c, _ := chars.Peek(bytesLeft)
+			for i := 0; i < len(c); i++ {
+				jsonSlice[i + 3] = c[i]
+			}
+
 			type Release struct {
 				A []struct {
 					Build string
@@ -218,32 +236,14 @@ func main() {
 				}
 			}
 
-			chars := bufio.NewReader(res.Body)
-			// discard bracket, quote and product ID
-			chars.Discard(2 + len(products[p].ID))
-			// create byte slice of needed length
-			bytesLeft := chars.Buffered()
-			sliceLen := 3 + bytesLeft
-			release := make([]byte, sliceLen, sliceLen)
-			// prepend curly bracket, quote and static product ID to byte slice
-			release[0] = '{'
-			release[1] = '"'
-			release[2] = 'A'
-
-			// append remaining characters to byte slice
-			c, _ := chars.Peek(bytesLeft)
-			for i := 0; i < len(c); i++ {
-				release[i + 3] = c[i]
-			}
-
-			var envelope = new(Release)
-			err4 := json.Unmarshal(release, &envelope)
+			var release = new(Release)
+			err4 := json.Unmarshal(jsonSlice, &release)
 			if err4 != nil {
 				log.Fatal("Error parsing JSON for " + products[p].Name + ".", err4)
 			}
 			res.Body.Close()
 
-			/*installDir := filepath.Join(products[p].ParentDir, products[p].Dir)
+			installDir := filepath.Join(products[p].ParentDir, products[p].Dir)
 
 			// only update outdated software
 			buildFile := filepath.Join(installDir, "build.txt")
@@ -251,7 +251,7 @@ func main() {
 			if err6 == nil && buildLine != nil {
 				currentBuild := strings.Split(string(buildLine), "-")
 
-				if len(currentBuild) == 2 && currentBuild[1] >= releaseMap[products[p].ID]["build"] {
+				if len(currentBuild) == 2 && currentBuild[1] >= release.A[0].Build {
 					log.Printf("%s is already up-to-date. Continuing...\n", products[p].Name)
 
 					continue
@@ -266,10 +266,9 @@ func main() {
 
 			tmpFile := filepath.Join(tmpDir, "installation.tar.gz")
 
-			url := releaseMap[products[p].ID]["downloads"]["linux"]["link"]
-			//url := "https://dl.dropboxusercontent.com/u/1051148/test.tar.gz?dl=1"
+			url := release.A[0].Downloads.Linux.Link
 
-			nameAndBuild := products[p].Name + " " + results.Releases[0].Build
+			nameAndBuild := products[p].Name + " " + release.A[0].Build
 
 			// start file download
 			log.Printf("Downloading %s (%s)...\n", nameAndBuild, url)
@@ -305,7 +304,7 @@ func main() {
 			os.RemoveAll(tmpDir)
 
 			// finish
-			log.Printf("%s was installed!\n", nameAndBuild)*/
+			log.Printf("%s was installed!\n", nameAndBuild)
 		}
 	}
 }
