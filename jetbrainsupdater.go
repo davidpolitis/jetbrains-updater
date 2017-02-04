@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"bufio"
@@ -22,12 +21,12 @@ import (
 func permFromString(perm_str string) (perm os.FileMode, err error) {
 	err = nil
 	if len(perm_str) != 4 {
-		err = fmt.Errorf("too long")
+		err =  errors.New("Permission is too long")
 	}
 	perm = perm | (os.ModeType & (os.FileMode(perm_str[0] - 48)))
 	for i, c := range perm_str[1:] {
 		if c < 48 || c > 55 {
-			err = fmt.Errorf("out of range")
+			err =  errors.New("Permission isn't within valid range.")
 		}
 
 		if i == 0 {
@@ -38,6 +37,7 @@ func permFromString(perm_str string) (perm os.FileMode, err error) {
 	return
 }
 
+// Downloads a file while simultaneously displaying the fraction and percentage complete
 func downloadWithProgress(url, destination string) error {
 	out, err := os.Create(destination)
 	if err != nil {
@@ -196,7 +196,6 @@ func main() {
 			if err3 != nil {
 				log.Fatal("Error getting JSON for " + products[p].Name + ".", err3)
 			}
-
 			chars := bufio.NewReader(res.Body)
 			// discard bracket, quote and product ID
 			chars.Discard(2 + len(products[p].ID))
@@ -244,7 +243,6 @@ func main() {
 			res.Body.Close()
 
 			installDir := filepath.Join(products[p].ParentDir, products[p].Dir)
-
 			// only update outdated software
 			buildFile := filepath.Join(installDir, "build.txt")
 			buildLine, err6 := ioutil.ReadFile(buildFile)
@@ -285,9 +283,9 @@ func main() {
 
 			// make install dir with correct permissions
 			if len(products[p].Chmod) > 0 {
-				perm, err := permFromString("0777")
+				perm, err := permFromString(products[p].Chmod)
 				if err != nil {
-					log.Printf("Invalid permission string: %s\n", products[p].Chmod)
+					log.Fatal(err)
 				}
 
 				os.Mkdir(installDir, perm)

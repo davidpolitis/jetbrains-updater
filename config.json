@@ -1,50 +1,5 @@
 [
   {
-    "name": "IntelliJ IDEA",
-    "ID": "IIU",
-    "EAP": true,
-    "parentdir": "/opt",
-    "dir": "IntelliJ-IDEA",
-    "chmod": "0755",
-    "enabled": false
-  },
-  {
-    "name": "RubyMine",
-    "ID": "RM",
-    "EAP": true,
-    "parentdir": "/opt",
-    "dir": "RubyMine",
-    "chmod": "0755",
-    "enabled": true
-  },
-  {
-    "name": "PyCharm",
-    "ID": "PCP",
-    "EAP": true,
-    "parentdir": "/opt",
-    "dir": "PyCharm",
-    "chmod": "0755",
-    "enabled": false
-  },
-  {
-    "name": "PhpStorm",
-    "ID": "PS",
-    "EAP": true,
-    "parentdir": "/opt",
-    "dir": "PhpStorm",
-    "chmod": "0755",
-    "enabled": true
-  },
-  {
-    "name": "WebStorm",
-    "ID": "WS",
-    "EAP": true,
-    "parentdir": "/opt",
-    "dir": "WebStorm",
-    "chmod": "0755",
-    "enabled": false
-  },
-  {
     "name": "CLion",
     "ID": "CL",
     "EAP": true,
@@ -63,8 +18,44 @@
     "enabled": false
   },
   {
+    "name": "Gogland",
+    "ID": "GO",
+    "EAP": true,
+    "parentdir": "/opt",
+    "dir": "Gogland",
+    "chmod": "0755",
+    "enabled": true
+  },
+  {
+    "name": "IntelliJ IDEA",
+    "ID": "IIU",
+    "EAP": true,
+    "parentdir": "/opt",
+    "dir": "IntelliJ-IDEA",
+    "chmod": "0755",
+    "enabled": false
+  },
+  {
+    "name": "PhpStorm",
+    "ID": "PS",
+    "EAP": false,
+    "parentdir": "/opt",
+    "dir": "PhpStorm",
+    "chmod": "0755",
+    "enabled": true
+  },
+  {
+    "name": "PyCharm",
+    "ID": "PCP",
+    "EAP": true,
+    "parentdir": "/opt",
+    "dir": "PyCharm",
+    "chmod": "0755",
+    "enabled": false
+  },
+  {
     "name": "Rider",
-    "ID": "",
+    "ID": "RD",
     "EAP": true,
     "parentdir": "/opt",
     "dir": "Rider",
@@ -72,12 +63,21 @@
     "enabled": false
   },
   {
-    "name": "Gogland",
-    "ID": "",
+    "name": "RubyMine",
+    "ID": "RM",
     "EAP": true,
     "parentdir": "/opt",
-    "dir": "Gogland",
+    "dir": "RubyMine",
     "chmod": "0755",
     "enabled": true
+  },
+  {
+    "name": "WebStorm",
+    "ID": "WS",
+    "EAP": true,
+    "parentdir": "/opt",
+    "dir": "WebStorm",
+    "chmod": "0755",
+    "enabled": false
   }
 ]
