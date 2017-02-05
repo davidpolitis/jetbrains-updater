@@ -194,9 +194,14 @@ func main() {
 			// fetch JSON
 			res, err3 := http.Get(releasesUrl)
 			if err3 != nil {
-				log.Fatal("Error getting JSON for " + products[p].Name + ".", err3)
+				log.Fatal("Error downloading JSON for " + products[p].Name + ".", err3)
 			}
 			chars := bufio.NewReader(res.Body)
+			// ensure JSON is valid
+			errString, _ := chars.Peek(8)
+			if string(errString) == `{"errors` {
+				log.Fatal("JSON for " + products[p].Name + " contained an error. Are you sure the product exists?")
+			}
 			// discard bracket, quote and product ID
 			chars.Discard(2 + len(products[p].ID))
 			// create byte slice of needed length

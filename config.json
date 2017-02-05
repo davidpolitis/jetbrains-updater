@@ -45,7 +45,25 @@
     "enabled": true
   },
   {
-    "name": "PyCharm",
+    "name": "PyCharm Community Edition",
+    "ID": "PCC",
+    "EAP": true,
+    "parentdir": "/opt",
+    "dir": "PyCharm-CE",
+    "chmod": "0755",
+    "enabled": false
+  },
+  {
+    "name": "PyCharm Edu",
+    "ID": "PCE",
+    "EAP": false,
+    "parentdir": "/opt",
+    "dir": "PyCharm-Edu",
+    "chmod": "0755",
+    "enabled": false
+  },
+  {
+    "name": "PyCharm Professional",
     "ID": "PCP",
     "EAP": true,
     "parentdir": "/opt",
