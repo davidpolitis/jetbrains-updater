@@ -186,7 +186,6 @@ func main() {
 		if products[p].Enabled == true && len(products[p].ParentDir) > 0 && len(products[p].Dir) > 0 {
 			// construct latest version URL
 			releasesUrl := "https://data.services.jetbrains.com/products/releases?code=" + products[p].ID + "&latest=true"
-
 			if products[p].EAP {
 				releasesUrl += "&type=eap"
 			}
@@ -197,11 +196,13 @@ func main() {
 				log.Fatal("Error downloading JSON for " + products[p].Name + ".", err3)
 			}
 			chars := bufio.NewReader(res.Body)
+
 			// ensure JSON is valid
-			errString, _ := chars.Peek(8)
-			if string(errString) == `{"errors` {
+			jsonError, err4 := chars.Peek(8)
+			if err4 == nil && string(jsonError) == `{"errors` {
 				log.Fatal("JSON for " + products[p].Name + " contained an error. Are you sure the product exists?")
 			}
+
 			// discard bracket, quote and product ID
 			chars.Discard(2 + len(products[p].ID))
 			// create byte slice of needed length
@@ -241,9 +242,9 @@ func main() {
 			}
 
 			var release = new(Release)
-			err4 := json.Unmarshal(jsonSlice, &release)
-			if err4 != nil {
-				log.Fatal("Error parsing JSON for " + products[p].Name + ".", err4)
+			err5 := json.Unmarshal(jsonSlice, &release)
+			if err5 != nil {
+				log.Fatal("Error parsing JSON for " + products[p].Name + ".", err5)
 			}
 			res.Body.Close()
 
