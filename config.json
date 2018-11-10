@@ -38,7 +38,7 @@
   {
     "name": "PhpStorm",
     "ID": "PS",
-    "EAP": false,
+    "EAP": true,
     "parentdir": "/opt",
     "dir": "PhpStorm",
     "chmod": "0755",
