@@ -18,11 +18,11 @@
     "enabled": false
   },
   {
-    "name": "Gogland",
+    "name": "GoLand",
     "ID": "GO",
     "EAP": true,
     "parentdir": "/opt",
-    "dir": "Gogland",
+    "dir": "GoLand",
     "chmod": "0755",
     "enabled": true
   },
@@ -87,7 +87,7 @@
     "parentdir": "/opt",
     "dir": "RubyMine",
     "chmod": "0755",
-    "enabled": true
+    "enabled": false
   },
   {
     "name": "WebStorm",
