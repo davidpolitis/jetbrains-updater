@@ -13,7 +13,7 @@ import (
 	"compress/gzip"
 	"archive/tar"
 	"errors"
-	"gopkg.in/cheggaaa/pb.v1"
+	"gopkg.in/cheggaaa/pb.v3"
 )
 
 // Converts an octal value file permission from a string to os.FileMode.
